@@ -5,8 +5,13 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
     background-color: aliceblue;
+}
+
+body button {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: 700;
 }
 
 .books-container {
@@ -25,12 +30,13 @@ body {
     gap: 0.5rem;
     background-color: bisque;
     font-size: 1.2rem;
+    font-weight: 550;
 }
 
 dialog {
-    padding: 1rem;
+    padding: 1.3rem;
     border: none;
-    border-radius: 1rem;
+    border-radius: 0.7rem;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -114,10 +120,29 @@ dialog {
     align-self: flex-end;
     margin-top: 0.8rem;
     border-radius: 1rem;
-    font-weight: 550;
     cursor: pointer;
 }
 
 .remove-btn:hover {
     background-color: red;
+}
+
+.toggle-btn {
+    padding: 0.7rem;
+    border: none;
+    margin-top: 1rem;
+    align-self: center;
+    border-radius: 0.8rem;
+    background-color: rgb(25, 205, 148);
+    color: white;
+    cursor: pointer;
+}
+
+.toggle-btn:hover {
+    background-color: rgb(24, 187, 135);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(7px);
 }

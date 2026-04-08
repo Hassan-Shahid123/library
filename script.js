@@ -13,6 +13,10 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(book);
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+}
+
 const container = document.querySelector('.books-container');
 
 function displayBooks() {
@@ -24,18 +28,25 @@ function displayBooks() {
         const pages = document.createElement('div');
         const read = document.createElement('div');
         const removeBtn = document.createElement('button');
+        const toggleBtn = document.createElement('button');
 
         title.textContent = 'Title: ' + book.title;
         author.textContent = 'Author: ' + book.author;
         pages.textContent = 'Pages: ' + book.pages;
-        read.textContent = 'Read: ' + book.read;
+
+        const hasRead = book.read ? 'read' : 'not read';
+        read.textContent = 'Read: ' + hasRead;
         removeBtn.textContent = 'Remove';
+        toggleBtn.textContent = 'Toggle Read';
 
         card.appendChild(title);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(read);
+        card.appendChild(toggleBtn);
         card.appendChild(removeBtn);
+
+        toggleBtn.classList.add('toggle-btn');
 
         removeBtn.classList.add('remove-btn');
         card.classList.add('card');
@@ -45,12 +56,23 @@ function displayBooks() {
         container.appendChild(card);
 
         removeBtn.addEventListener("click", (e) => {
-            const index = e.target.parentElement.dataset.id;
+            const bookID = e.target.parentElement.dataset.id;
+            let index = myLibrary.findIndex(b => b.id === bookID);
             myLibrary.splice(index, 1);
             displayBooks();
         });
+
+        toggleBtn.addEventListener("click", (e) => {
+            const bookID = e.target.parentElement.dataset.id;
+            let targetBook = myLibrary.find(b => b.id === bookID);
+            targetBook.toggleRead();
+            const hasRead = book.read ? 'read' : 'not read';
+            read.textContent = 'Read: ' + hasRead;
+        });
     }
 }
+
+
 
 const newBtn = document.querySelector('#new-btn');
 const dialog = document.querySelector('#book-dialog');
