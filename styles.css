@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat-Regular.woff2') format('woff2'),
+        url('./fonts/Montserrat-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* @font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat-Black.woff2') format('woff2'),
+        url('./fonts/Montserrat-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+} */
+
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +30,13 @@ body {
 body button {
     font-family: Montserrat, Arial, Helvetica, sans-serif;
     font-weight: 700;
+}
+
+.heading {
+    font-size: 2rem;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .books-container {
@@ -30,7 +55,7 @@ body button {
     gap: 0.5rem;
     background-color: bisque;
     font-size: 1.2rem;
-    font-weight: 550;
+    font-weight: 600;
 }
 
 dialog {
