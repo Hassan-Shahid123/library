@@ -1,11 +1,13 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(title, author, pages, read) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -95,7 +97,7 @@ newBtn.addEventListener("click", () => {
 });
 
 addBtn.addEventListener("click", (event) => {
-    if(!form.reportValidity()) return;
+    if (!form.reportValidity()) return;
     event.preventDefault();
     const formData = new FormData(form);
     console.log(formData);
